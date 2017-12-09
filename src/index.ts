@@ -9,5 +9,20 @@ module.exports = async (context, cb) => {
     console.log("Getting education");
     const data = await Education.find();
 
-    cb(null, data);
+    const sortedData = data.sort((a, b) => {
+        if (a.endDate === undefined) {
+            return -1;
+        }
+
+        const aStartDate = new Date(a.startDate.year, 0, 1);
+        const bStartDate = new Date(b.startDate.year, 0, 1);
+
+        if (aStartDate > bStartDate) {
+            return -1;
+        } else {
+            return 1;
+        }
+    });
+
+    cb(null, sortedData);
 };
