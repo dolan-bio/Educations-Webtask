@@ -1,3 +1,3 @@
-# Skills Webtask
+# Educations Webtask
 
-> Tool to fetch skills from google images and return images
+> Tool to fetch educations from google images and return images
